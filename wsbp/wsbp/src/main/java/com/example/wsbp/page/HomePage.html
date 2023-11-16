@@ -1,0 +1,22 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+-->
+
+<html xmlns:wicket="http://wicket.apache.org">
+<head></head>
+<body>
+<!--wicket:id=... は、コンポーネントクラスを使ってHTMLを書き換える場所であることをWicketに識別させる-->
+<p>Hello, <span wicket:id="you">you</span>!</p>
+<p><span wicket:id="gakuseki">gakuseki</span>
+    <span wicket:id="name">name</span></p>
+<p wicket:id="time">time</p>
+<p wicket:id="rand">rand</p>
+
+<div><a href="#" wicket:id="toUserMaker">ユーザを新規追加</a></div>
+</body>
+</html>
