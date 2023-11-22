@@ -5,7 +5,6 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.wicketstuff.annotation.mount.MountPath;
 
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
 
 import org.apache.wicket.model.Model;
@@ -16,16 +15,15 @@ import java.util.logging.SocketHandler;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import com.example.wsbp.service.IUserService;
 
-@MountPath("UserMaker")
-public class UserMakerPage extends WebPage {
+@MountPath("UserDelete")
+public class UserDeletePage extends WebPage {
 
     //IUserService を IoC/DI する
     @SpringBean
     private IUserService userService;
 
-    public UserMakerPage() {
+    public UserDeletePage() {
         var userNameModel = Model.of("");
-        var userPassModel = Model.of("");
 
 
         var toHomeLink = new BookmarkablePageLink<>("toHome", HomePage.class);
@@ -36,26 +34,19 @@ public class UserMakerPage extends WebPage {
             @Override
             protected void onSubmit() {
                 var userName = userNameModel.getObject();
-                var userPass = userPassModel.getObject();
                 var msg = "送信データ： "
-                        + userName
-                        + ","
-                        + userPass;
+                        + userName;
                 System.out.println(msg);
                 // IoC/DI した userService のメソッドを呼び出す
-                userService.registerUser(userName, userPass);
+                userService.removeUser(userName);
                 //移動先のPageクラスのコンストラクタ引数を使って、モデルを渡している
-                setResponsePage(new UserMakerCompPage(userNameModel));
+                setResponsePage(new UserDeleteCompPage(userNameModel));
             }
         };
         add(userInfoForm);
 
         var userNameField = new TextField<>("userName", userNameModel);
         userInfoForm.add(userNameField);
-
-        var userPassField = new PasswordTextField("userPass", userPassModel);
-        userInfoForm.add(userPassField);
-
 
         //ここでは、 userNameField, userPassField 用に用意したモデルの中身を標準出力に表示している。送信ボタンが押されると以下の様に処理が実行される。
         //ブラウザからフォームの入力値がサーバへ送信される

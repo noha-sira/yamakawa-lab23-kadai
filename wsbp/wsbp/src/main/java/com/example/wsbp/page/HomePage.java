@@ -34,7 +34,7 @@ public class HomePage extends WebPage {
         var gakusekiLabel = new Label("gakuseki", gakusekiModel);
         add(gakusekiLabel);
 
-        var nameModel = Model.of("脇美怜");
+        var nameModel = Model.of("ｘｘ");
         var nameLabel = new Label("name", nameModel);
         add(nameLabel);
 
@@ -49,6 +49,11 @@ public class HomePage extends WebPage {
         //toUserMaker のタグを UserMakerPage へのリンクに書き換えるようにする
         var toUserMakerLink = new BookmarkablePageLink<>("toUserMaker", UserMakerPage.class);
         add(toUserMakerLink);
+
+        //toUserDelete のタグを UserDeletePage へのリンクに書き換えるようにする
+        var toUserDeleteLink = new BookmarkablePageLink<>("toUserDelete", UserDeletePage.class);
+        add(toUserDeleteLink);
+
 
     }
 
