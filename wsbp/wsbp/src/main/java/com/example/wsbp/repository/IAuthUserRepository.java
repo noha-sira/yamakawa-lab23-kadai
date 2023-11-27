@@ -11,6 +11,22 @@ public interface IAuthUserRepository {
      */
     public int insert(String userName, String userPass);
 
+    /**
+     * ユーザー名とパスワードをAuthUserテーブルから削除する
+     *
+     * @param userName ユーザー名
+     * @return データベースの削除行数
+     */
+
     public int delete(String userName);
+
+    /**
+     * ユーザ名とパスワードが一致するレコードがAuthUserテーブルにあるか検索する
+     *
+     * @param userName ユーザー名
+     * @param userPass パスワード
+     * @return レコードの有無, 存在すれば<code>true</code>, それ以外は <code>false</code>
+     */
+    public boolean exists(String userName, String userPass);
 
 }
