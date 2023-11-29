@@ -37,6 +37,7 @@ public class UserDeletePage extends WebPage {
                 var msg = "送信データ： "
                         + userName;
                 System.out.println(msg);
+
                 // IoC/DI した userService のメソッドを呼び出す
                 userService.removeUser(userName);
                 //移動先のPageクラスのコンストラクタ引数を使って、モデルを渡している

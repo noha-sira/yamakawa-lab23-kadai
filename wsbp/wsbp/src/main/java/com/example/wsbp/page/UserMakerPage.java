@@ -43,6 +43,7 @@ public class UserMakerPage extends WebPage {
                         + ","
                         + userPass;
                 System.out.println(msg);
+
                 // IoC/DI した userService のメソッドを呼び出す
                 userService.registerUser(userName, userPass);
                 //移動先のPageクラスのコンストラクタ引数を使って、モデルを渡している

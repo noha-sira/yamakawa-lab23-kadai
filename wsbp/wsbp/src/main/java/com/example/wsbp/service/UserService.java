@@ -1,7 +1,9 @@
 package com.example.wsbp.service;
 
 import com.example.wsbp.data.AuthUser;
+import com.example.wsbp.repository.ChatRepository;
 import com.example.wsbp.repository.IAuthUserRepository;
+import com.example.wsbp.repository.IChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,12 @@ import java.util.List;
 public class UserService implements IUserService {
 
     private IAuthUserRepository authUserRepos;
+    private IChatRepository chatRepos;
 
     @Autowired
-    public UserService(IAuthUserRepository authUserRepos) {
+    public UserService(IAuthUserRepository authUserRepos, IChatRepository chatRepos) {
         this.authUserRepos = authUserRepos;
+        this.chatRepos = chatRepos;
     }
 
     @Override
@@ -42,4 +46,14 @@ public class UserService implements IUserService {
         System.out.println("データ件数：" + users.size());
         return users;
     }
+
+
+    // ------------------chatテーブル用↓------------------------------------------------
+    @Override
+    public void registerChat(String userName, String msgBody) {
+        int n = chatRepos.insert(userName, msgBody);
+        System.out.println("記録行数：" + n);
+    }
+
+
 }

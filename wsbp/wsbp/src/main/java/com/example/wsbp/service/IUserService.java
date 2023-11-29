@@ -7,7 +7,14 @@ import java.util.List;
 public interface IUserService {
 
     public void registerUser(String userName, String userPass);
+    public void registerChat(String userName, String msgBody);
 
+
+    /**
+     * ユーザ名とパスワードをデータベースから削除する
+     *
+     * @param userName ユーザー名
+     */
     public void removeUser(String userName);
 
     /**
