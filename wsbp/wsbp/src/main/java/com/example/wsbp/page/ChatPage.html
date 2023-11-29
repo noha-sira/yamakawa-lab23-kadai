@@ -2,12 +2,26 @@
 <head></head>
 <body>
 <h1>チャット</h1>
+<p>あなたは<span wicket:id="userName">userName</span>さんです。</p>
+
+<h2>全てのチャット</h2>
+<ol>
+  <li wicket:id="chats">
+    <span wicket:id="userName"></span>:
+    <span wicket:id="msgBody"></span>
+  </li>
+</ol>
+
 <form action="#" wicket:id="chatInfo">
-  <p>あなたは<span wicket:id="userName">userName</span>さんです。</p>
+
   <div><input type="text" wicket:id="msgBody"/></div>
   <div>
     <button type="submit">送信</button>
   </div>
 </form>
+
+<!--<div><a wicket:id="toSignedPage">戻る</a></div>-->
+<div><a wicket:id="signout">サインアウト</a></div>
+
 </body>
 </html>

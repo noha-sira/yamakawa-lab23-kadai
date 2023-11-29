@@ -1,6 +1,7 @@
 package com.example.wsbp.service;
 
 import com.example.wsbp.data.AuthUser;
+import com.example.wsbp.data.Chat;
 import com.example.wsbp.repository.ChatRepository;
 import com.example.wsbp.repository.IAuthUserRepository;
 import com.example.wsbp.repository.IChatRepository;
@@ -53,6 +54,13 @@ public class UserService implements IUserService {
     public void registerChat(String userName, String msgBody) {
         int n = chatRepos.insert(userName, msgBody);
         System.out.println("記録行数：" + n);
+    }
+
+    @Override
+    public List<Chat> findChats() {
+        var chats = chatRepos.find();
+        System.out.println("データ件数：" + chats.size());
+        return chats;
     }
 
 
