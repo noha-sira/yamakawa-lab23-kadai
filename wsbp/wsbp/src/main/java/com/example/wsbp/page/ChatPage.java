@@ -75,15 +75,15 @@ public class ChatPage extends WebPage {
                 // チャットのリストを更新する
                 chatsModel.getObject().clear();
                 chatsModel.getObject().addAll(userService.findChats());
-
-                // Ajaxでフォームを再描画する
-                RequestCycle requestCycle = RequestCycle.get();
-                AjaxRequestTarget target = requestCycle.find(AjaxRequestTarget.class).orElse(null);
-
-                if (target != null) {
-
-                    target.add(ChatPage.this);
-                }
+//
+//                // Ajaxでフォームを再描画する
+//                RequestCycle requestCycle = RequestCycle.get();
+//                AjaxRequestTarget target = requestCycle.find(AjaxRequestTarget.class).orElse(null);
+//
+//                if (target != null) {
+//
+//                    target.add(ChatPage.this);
+//                }
 
             }
         };
@@ -125,7 +125,6 @@ public class ChatPage extends WebPage {
             }
         };
         add(chatsLV);
-
 
     }
 }
